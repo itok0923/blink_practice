@@ -6,12 +6,11 @@
 class LEDSet {
   public:
     LEDSet(int pin);
-    void swtiching();
-    void on();
-        
-  private:
+    void LED_blink();
+    void LED_on();
+    void LED_off();
     int LEDpin;
-    int LEDStat;
+    int LEDstat;
 };
 
 #endif

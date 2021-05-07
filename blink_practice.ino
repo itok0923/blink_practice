@@ -3,20 +3,20 @@
 
 LEDSet led = LEDSet(PA5);
 PushSet push = PushSet(PC13);
-int val = HIGH;
+int toggle_stat = HIGH;
 
 void setup() {
-  attachInterrupt(digitalPinToInterrupt(PC13),pushtoggle,FALLING);
+  attachInterrupt(digitalPinToInterrupt(push.Pushpin),pushtoggle,FALLING);
 }
 
 void loop() {
-  if(val == LOW){
-    led.on();
+  if(toggle_stat == LOW){
+    led.LED_on();
   }else{
-    led.swtiching();
+    led.LED_blink();
+    delay(1500);
   }
-  delay(1500);
 }
 void pushtoggle(){
-  val = !val;  
+  toggle_stat = !toggle_stat;  
 }

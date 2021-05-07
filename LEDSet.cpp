@@ -2,27 +2,19 @@
 #include "LEDSet.h"
 
 LEDSet::LEDSet(int pin){
-  LEDStat = LOW;
+  LEDstat = LOW;
   LEDpin = pin;
   pinMode(LEDpin,OUTPUT);
 }
-void LEDSet::swtiching(){  
-  if(LEDStat == HIGH){
-    digitalWrite(LEDpin,LOW);
-    LEDStat = LOW;
-  }else if(LEDStat == LOW){
-    digitalWrite(LEDpin,HIGH);
-    LEDStat = HIGH;
-  }else{
-    digitalWrite(LEDpin,LOW);
-    LEDStat = LOW;
-  }
+void LEDSet::LED_blink(){  
+  LEDstat = !LEDstat;
+  digitalWrite(LEDpin,LEDstat);
 }
-void LEDSet::on(){  
-  digitalWrite(LEDpin,HIGH);
-  LEDStat = HIGH;
+void LEDSet::LED_on(){  
+  LEDstat = HIGH;
+  digitalWrite(LEDpin,LEDstat);
 }
-void LEDSet::off(){  
-  digitalWrite(LEDpin,LOW);
-  LEDStat = LOW;
+void LEDSet::LED_off(){  
+  LEDstat = LOW;
+  digitalWrite(LEDpin,LEDstat);
 }
